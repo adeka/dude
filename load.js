@@ -9,6 +9,10 @@ var load_state = {
 
 	this.game.load.tilemap('house', 'level/house.json', null, Phaser.Tilemap.TILED_JSON);
 	this.game.load.tilemap('room1', 'level/room1.json', null, Phaser.Tilemap.TILED_JSON);
+	this.game.load.tilemap('room2', 'level/room2.json', null, Phaser.Tilemap.TILED_JSON);
+	this.game.load.tilemap('room3', 'level/room3.json', null, Phaser.Tilemap.TILED_JSON);
+	this.game.load.tilemap('room4', 'level/room4.json', null, Phaser.Tilemap.TILED_JSON);
+	this.game.load.tilemap('room5', 'level/room5.json', null, Phaser.Tilemap.TILED_JSON);
 	this.game.load.image('tilesetBig', 'assets/tilesetBig.png');
 
 	this.game.load.spritesheet('character', 'assets/character.png');

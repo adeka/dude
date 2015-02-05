@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="32" height="32" tilewidth="40" tileheight="40" nextobjectid="12">
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="32" height="32" tilewidth="40" tileheight="40" nextobjectid="17">
  <tileset firstgid="1" name="tilesetBig" tilewidth="40" tileheight="40">
   <image source="../assets/tilesetBig.png" width="640" height="640"/>
  </tileset>
@@ -114,8 +114,36 @@
  <objectgroup name="objectsLayer">
   <object id="1" name="room1" type="door" x="680" y="890.667" width="89.3333" height="110">
    <properties>
+    <property name="destX" value="1020"/>
+    <property name="destY" value="760"/>
+    <property name="sprite" value="door"/>
+   </properties>
+  </object>
+  <object id="13" name="room2" type="door" x="420.667" y="691.334" width="89.3333" height="110">
+   <properties>
     <property name="destX" value="90"/>
-    <property name="destY" value="750"/>
+    <property name="destY" value="760"/>
+    <property name="sprite" value="door"/>
+   </properties>
+  </object>
+  <object id="14" name="room3" type="door" x="422.667" y="490.667" width="89.3333" height="110">
+   <properties>
+    <property name="destX" value="90"/>
+    <property name="destY" value="760"/>
+    <property name="sprite" value="door"/>
+   </properties>
+  </object>
+  <object id="15" name="room4" type="door" x="540" y="290.667" width="89.3333" height="110">
+   <properties>
+    <property name="destX" value="600"/>
+    <property name="destY" value="760"/>
+    <property name="sprite" value="door"/>
+   </properties>
+  </object>
+  <object id="16" name="room5" type="door" x="404.667" y="90.667" width="89.3333" height="110">
+   <properties>
+    <property name="destX" value="90"/>
+    <property name="destY" value="760"/>
     <property name="sprite" value="door"/>
    </properties>
   </object>

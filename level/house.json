@@ -44,8 +44,8 @@
                  "name":"room1",
                  "properties":
                     {
-                     "destX":"90",
-                     "destY":"750",
+                     "destX":"1020",
+                     "destY":"760",
                      "sprite":"door"
                     },
                  "rotation":0,
@@ -54,6 +54,74 @@
                  "width":89.3333,
                  "x":680,
                  "y":890.667
+                }, 
+                {
+                 "height":110,
+                 "id":13,
+                 "name":"room2",
+                 "properties":
+                    {
+                     "destX":"90",
+                     "destY":"760",
+                     "sprite":"door"
+                    },
+                 "rotation":0,
+                 "type":"door",
+                 "visible":true,
+                 "width":89.3333,
+                 "x":420.666666666667,
+                 "y":691.333666666667
+                }, 
+                {
+                 "height":110,
+                 "id":14,
+                 "name":"room3",
+                 "properties":
+                    {
+                     "destX":"90",
+                     "destY":"760",
+                     "sprite":"door"
+                    },
+                 "rotation":0,
+                 "type":"door",
+                 "visible":true,
+                 "width":89.3333,
+                 "x":422.666666666667,
+                 "y":490.667
+                }, 
+                {
+                 "height":110,
+                 "id":15,
+                 "name":"room4",
+                 "properties":
+                    {
+                     "destX":"600",
+                     "destY":"760",
+                     "sprite":"door"
+                    },
+                 "rotation":0,
+                 "type":"door",
+                 "visible":true,
+                 "width":89.3333,
+                 "x":540,
+                 "y":290.667
+                }, 
+                {
+                 "height":110,
+                 "id":16,
+                 "name":"room5",
+                 "properties":
+                    {
+                     "destX":"90",
+                     "destY":"760",
+                     "sprite":"door"
+                    },
+                 "rotation":0,
+                 "type":"door",
+                 "visible":true,
+                 "width":89.3333,
+                 "x":404.666666666667,
+                 "y":90.6669999999999
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -84,7 +152,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":12,
+ "nextobjectid":17,
  "orientation":"orthogonal",
  "properties":
     {

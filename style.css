@@ -1,0 +1,10 @@
+
+body{
+	background-color: black;
+}
+
+#game_div {
+	width: 700px;
+	height: 500px;
+	margin: 0;
+}

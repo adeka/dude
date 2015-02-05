@@ -35,7 +35,7 @@
         }, 
         {
          "draworder":"topdown",
-         "height":32,
+         "height":0,
          "name":"objectsLayer",
          "objects":[
                 {
@@ -52,13 +52,13 @@
                  "type":"door",
                  "visible":true,
                  "width":89.3333,
-                 "x":64.6666833333333,
-                 "y":653
+                 "x":1006.6667,
+                 "y":651
                 }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
-         "width":32,
+         "width":0,
          "x":0,
          "y":0
         }, 
