@@ -114,7 +114,7 @@
  <objectgroup name="objectsLayer">
   <object id="12" name="house" type="door" x="64.6667" y="653" width="89.3333" height="110">
    <properties>
-    <property name="destX" value="445"/>
+    <property name="destX" value="200"/>
     <property name="destY" value="200"/>
     <property name="sprite" value="door"/>
    </properties>

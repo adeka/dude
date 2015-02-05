@@ -44,7 +44,7 @@
                  "name":"house",
                  "properties":
                     {
-                     "destX":"445",
+                     "destX":"200",
                      "destY":"200",
                      "sprite":"door"
                     },

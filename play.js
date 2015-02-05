@@ -1,5 +1,4 @@
 var interact = false;
-
 function Door(game,x,y, group, name, props){
 	this.open = false;
 	this.sprite = game.add.sprite(x, y, 'door');
@@ -33,14 +32,16 @@ function atDoor(player, door){
 
 var play_state = {
 	preload: function() {
-		game.stage.setBackgroundColor(0x000000);
+
 	},
 
 	create: function() {
+
+
+
 		this.wallGroup = this.game.add.group();
 		this.doorGroup = this.game.add.group();
 		//this.doorGroup.enableBody = true;
-
 
 		this.game.physics.startSystem(Phaser.Physics.ARCADE)
 		this.game.physics.arcade.gravity.y = 200;
@@ -49,13 +50,9 @@ var play_state = {
 		this.running = false
 		this.attacking = false;
 
-		//new Door(this.game, 450, 500);
-
-
 		//add character sprite and animations
 		this.character = this.game.add.sprite(0, 0, 'legs');
 		this.character.scale = {x:5,y:5};
-
 		this.character.anchor = {x:.5, y : .5};
 
 
@@ -84,20 +81,11 @@ var play_state = {
    		this.torso.animations.add('idle', [0]);
    		this.torso.animations.add('jump',[3]);
    		this.torso.animations.add('punch',[4,5,6,7,7,6,5,4]);
-		
 
 		this.character.smoothed = false;
 		this.torso.smoothed = false;
 		this.head.smoothed = false;
 
-		//this.characterGroup.add(this.character);
-				 //this.PIXI.BaseTexture.SCALE_MODE.NEAREST;
-
-		/*
-		this.character.animations.add('walk', [0, 1, 2, 3, 4], 15, true);
-		this.character.animations.add('crouch', [5, 6, 7, 8, 9], 30, false);
-		*/
-		
 		this.load_level("house", 400, 1000);
 
 		this.left = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
@@ -145,7 +133,10 @@ var play_state = {
 		this.torso.body.enable = false;
 		this.head.body.enable = false;
 
-		this.character.body.setSize(10, 20, 0, -40)
+		this.character.body.setSize(10, 20, 0, -40);
+
+
+
 	},
 
 	update: function() { 
@@ -168,7 +159,6 @@ var play_state = {
 
 		if (this.jump && this.character.body.onFloor()) {
 			this.character.body.velocity.y = -550;
-			//console.log("pokemon");
 		}
 
 		this.character.body.velocity.x = this.velocity * 170;
@@ -204,6 +194,12 @@ var play_state = {
 			this.torso.animations.play('jump', 8, false);
 		}
 
+		if(this.level=="house" && this.character.position.x < 0){
+			this.load_level("houseFront", 1200,1000);
+		}
+		if(this.level=="house" && this.character.position.x > 800){
+			this.load_level("houseBack", 1200,1000);
+		}
 },
 
 
@@ -211,9 +207,16 @@ var play_state = {
 load_level: function(level, x, y) {
 	this.frozen = false;
 
-	this.wallGroup.removeAll()
-	this.doorGroup.removeAll()
-	//if (this.doorGroup) this.doorGroup.destroy();
+	this.wallGroup.removeAll();
+	this.doorGroup.removeAll();
+
+	if(level == "houseFront" || level == "houseBack"){
+		this.game.stage.setBackgroundColor(0x7EC0EE);
+	}
+	else{
+		this.game.stage.setBackgroundColor(0x000000);
+	}
+
 	if(level == "house"){
 		this.map = this.game.add.tilemap('house');
 	}
@@ -229,8 +232,10 @@ load_level: function(level, x, y) {
 	
 	this.layer = this.map.createLayer('layer',1024,1024,this.wallGroup);	
 
+	this.overlay = this.map.createLayer('overlay');	
+
 	this.layer.resizeWorld();
-	this.map.setCollisionBetween(0, 30, true, "layer", true );
+	this.map.setCollisionBetween(0, 3000, true, "layer", true );
 
 	var result = this.findObjectsByType(this.map, 'objectsLayer');
  
