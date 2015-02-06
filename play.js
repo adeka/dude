@@ -16,16 +16,60 @@ function Door(game,x,y, group, name, props){
 	group.add(this.sprite);
 }
 
+function DoorSide(game,x,y, group, name, props){
+	this.open = false;
+	this.sprite = game.add.sprite(x, y, 'doorSide');
+	this.sprite.dest = {x:props.destX, y: props.destY};
+
+	this.sprite.name = name;
+	this.sprite.scale = {x:5,y:5};
+	this.sprite.smoothed = false;
+	this.sprite.animations.add('open',[0,1,2,3,4]);
+	this.sprite.animations.add('close',[4,3,2,1,0]);
+	game.physics.arcade.enable(this.sprite);
+	//this.sprite.body.enable = false;
+	this.sprite.body.allowGravity = false;
+	this.sprite.body.immovable = true;
+	//
+	group.add(this.sprite);
+}
+
 function atDoor(player, door){
 	if(interact){
 		console.log(door.name);
 		interact = false;
 		door.animations.play('open', 8, false);
-		var x = door.dest.x;
 		var game = this;
 		this.frozen = true;
 		setTimeout(function() {
 			game.load_level(door.name, parseInt(door.dest.x), parseInt(door.dest.y));
+		}, 600);
+	}
+}
+
+function atSideDoor(player, door){
+	if(!door.open){
+		if(player.position.x < door.position.x && this.velocity > 0){
+			this.velocity = 0;
+		}
+		else if(player.position.x > door.position.x && this.velocity < 0){
+			this.velocity = 0;
+		}
+	}
+	if(interact && !door.open){
+		interact = false;
+		door.open = true;
+		door.animations.play('open', 8, false);
+		var game = this;
+		door.body.enable = false;
+	}
+	if(interact && door.open){
+		interact = false;
+		door.open = false;
+		door.animations.play('close', 8, false);
+		var game = this;
+		setTimeout(function() {
+			door.body.enable = true;
 		}, 600);
 	}
 }
@@ -41,6 +85,7 @@ var play_state = {
 
 		this.wallGroup = this.game.add.group();
 		this.doorGroup = this.game.add.group();
+		this.sideDoorsGroup = this.game.add.group();
 		//this.doorGroup.enableBody = true;
 
 		this.game.physics.startSystem(Phaser.Physics.ARCADE)
@@ -85,6 +130,9 @@ var play_state = {
 		this.character.smoothed = false;
 		this.torso.smoothed = false;
 		this.head.smoothed = false;
+
+		this.overlayGroup = this.game.add.group();
+
 
 		this.load_level("house", 400, 1000);
 
@@ -146,6 +194,7 @@ var play_state = {
 			this.velocity = 0;
 		}
 		this.game.physics.arcade.overlap(this.character, this.doorGroup, atDoor, null, this);
+		this.game.physics.arcade.overlap(this.character, this.sideDoorsGroup, atSideDoor, null, this);
 		this.game.physics.arcade.collide(this.character, this.layer);
 
 		if(this.punching && this.punching.isFinished){
@@ -197,8 +246,11 @@ var play_state = {
 		if(this.level=="house" && this.character.position.x < 0){
 			this.load_level("houseFront", 1200,1000);
 		}
+		if(this.level=="townHouse" && this.character.position.x < 0){
+			this.load_level("houseFront", 2000,1000);
+		}
 		if(this.level=="house" && this.character.position.x > 800){
-			this.load_level("houseBack", 1200,1000);
+			this.load_level("houseBack", 400,1000);
 		}
 },
 
@@ -209,6 +261,8 @@ load_level: function(level, x, y) {
 
 	this.wallGroup.removeAll();
 	this.doorGroup.removeAll();
+	this.overlayGroup.removeAll();
+	this.sideDoorsGroup.removeAll();
 
 	if(level == "houseFront" || level == "houseBack"){
 		this.game.stage.setBackgroundColor(0x7EC0EE);
@@ -232,7 +286,7 @@ load_level: function(level, x, y) {
 	
 	this.layer = this.map.createLayer('layer',1024,1024,this.wallGroup);	
 
-	this.overlay = this.map.createLayer('overlay');	
+	this.overlay = this.map.createLayer('overlay',1024,1024,this.overlayGroup);	
 
 	this.layer.resizeWorld();
 	this.map.setCollisionBetween(0, 3000, true, "layer", true );
@@ -242,6 +296,17 @@ load_level: function(level, x, y) {
     result.forEach(function(element){
  		new Door(this.game, element.x, element.y, this.doorGroup, element.name, element.properties);
     }, this);
+
+    if(this.map.objects['doorSide']){
+		var doorSide = this.findObjectsByType(this.map, 'doorSide');
+	 	if(doorSide){
+		    doorSide.forEach(function(element){
+	 			new DoorSide(this.game, element.x, element.y, this.sideDoorsGroup, element.name, element.properties);
+	    	}, this);
+	 	}
+    }
+
+
 
 
 	this.game.physics.enable([this.character, this.layer]);

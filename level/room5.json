@@ -54,6 +54,23 @@
                  "width":89.3333,
                  "x":64.6667,
                  "y":653
+                }, 
+                {
+                 "height":110,
+                 "id":13,
+                 "name":"houseBack",
+                 "properties":
+                    {
+                     "destX":"70",
+                     "destY":"275",
+                     "sprite":"door"
+                    },
+                 "rotation":0,
+                 "type":"door",
+                 "visible":true,
+                 "width":89.3333,
+                 "x":1032.33335,
+                 "y":651
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -84,7 +101,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":13,
+ "nextobjectid":14,
  "orientation":"orthogonal",
  "properties":
     {
