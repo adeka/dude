@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="40" tileheight="40" nextobjectid="17">
+ <tileset firstgid="1" name="tilesetBig" tilewidth="40" tileheight="40">
+  <image source="../assets/tilesetBig.png" width="640" height="640"/>
+ </tileset>
+ <layer name="walls" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzt0rENACAIAEEW0v3Hs9FOOpWY3CWEjm+IAAAA+EvbTGX7VT9r3+z3eX9t/Zq/O2EAr4IIHQ==
+  </data>
+ </layer>
+ <layer name="subDecals" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzt0DEKACAMBME8Xn/gg+2DNhYJwkx31cJFAAAA/GWlPZvbo7ld1b+1q/u5Xdk/tTv+f7EBREcMlw==
+  </data>
+ </layer>
+ <objectgroup name="objectsLayer"/>
+ <layer name="decals" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGwSgYBaOANNBIoji1wUQSxakNFpIoTm2wkURxZNAExJOBeBKUjYzRxSdD9dShmXEQixhMfKDAVCCeNmr3qN3D3G5KAQBUORS0
+  </data>
+ </layer>
+ <layer name="layer" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztzTsKACAMBNFUfu7tYfSWtkGCxoBW82CKNFkRAAAAAPgjB2pGnt/JqATybEvw9+3+zqt9L/bP1UBdNZZb5/k1AW9pEY0=
+  </data>
+ </layer>
+ <objectgroup name="slopes">
+  <object id="15" x="666" y="1248">
+   <polyline points="0,0 251,-247 259,-241 265,7 0,1"/>
+  </object>
+  <object id="16" x="641" y="1118">
+   <polyline points="0,0 117,-117 -5,-116 -1,0"/>
+  </object>
+ </objectgroup>
+</map>

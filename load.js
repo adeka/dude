@@ -16,9 +16,13 @@ var load_state = {
 	this.game.load.tilemap('houseFront', 'level/houseFront.json', null, Phaser.Tilemap.TILED_JSON);
 	this.game.load.tilemap('houseBack', 'level/houseBack.json', null, Phaser.Tilemap.TILED_JSON);
 	this.game.load.tilemap('townHouse', 'level/townHouse.json', null, Phaser.Tilemap.TILED_JSON);
+	this.game.load.tilemap('subwayGround', 'level/subwayGround.json', null, Phaser.Tilemap.TILED_JSON);
+
 	this.game.load.image('tilesetBig', 'assets/tilesetBig.png');
+	this.game.load.image('collision', 'assets/collisions.png');
 
 	this.game.load.spritesheet('character', 'assets/character.png');
+	this.game.load.image('ball', 'assets/ball.png');
 
 	this.game.load.spritesheet('legs', 'assets/legs/legs.png', 10, 4, 12);
 	this.game.load.spritesheet('door', 'assets/door.png', 12, 22, 5);
@@ -30,6 +34,6 @@ var load_state = {
     },
 
     create: function() {
-	game.state.start('play');
+		game.state.start('play');
     },
 };
