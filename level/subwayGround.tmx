@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="40" tileheight="40" nextobjectid="17">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="40" tileheight="40" nextobjectid="19">
  <tileset firstgid="1" name="tilesetBig" tilewidth="40" tileheight="40">
   <image source="../assets/tilesetBig.png" width="640" height="640"/>
  </tileset>
@@ -10,7 +10,7 @@
  </layer>
  <layer name="subDecals" width="32" height="32">
   <data encoding="base64" compression="zlib">
-   eJzt0DEKACAMBME8Xn/gg+2DNhYJwkx31cJFAAAA/GWlPZvbo7ld1b+1q/u5Xdk/tTv+f7EBREcMlw==
+   eJzt0DEKACAMBME8Pv7AB9tKuDSCp8UOXBdYSAQAAAAA/CvFZrkZxr5qp6nftW/2O3vb3a9tZ1+1X/z/xALwVhLH
   </data>
  </layer>
  <objectgroup name="objectsLayer"/>
@@ -19,9 +19,14 @@
    eJxjYBgFo2AUjIJRMApGwSgYBaOANNBIoji1wUQSxakNFpIoTm2wkURxZNAExJOBeBKUjYzRxSdD9dShmXEQixhMfKDAVCCeNmr3qN3D3G5KAQBUORS0
   </data>
  </layer>
+ <layer name="bg" width="32" height="32" opacity="0.6">
+  <data encoding="base64" compression="zlib">
+   eJztwzENAAAMA6D6d1R3dbE9kJAAAADcqPp2rGSh4Q==
+  </data>
+ </layer>
  <layer name="layer" width="32" height="32">
   <data encoding="base64" compression="zlib">
-   eJztzTsKACAMBNFUfu7tYfSWtkGCxoBW82CKNFkRAAAAAPgjB2pGnt/JqATybEvw9+3+zqt9L/bP1UBdNZZb5/k1AW9pEY0=
+   eJztzTEOACAIBEEqlf9/Qn9JSwwFucLGnWQLmsMMAAAAAN6YQur2KFpCXco2///670I7da4719kKw0sLXQ==
   </data>
  </layer>
  <objectgroup name="slopes">
@@ -31,10 +36,8 @@
   <object id="16" x="641" y="1118">
    <polyline points="0,0 117,-117 -5,-116 -1,0"/>
   </object>
+  <object id="18" x="517" y="1001">
+   <polyline points="0,0 151,1 124,115 -14,115 0,1"/>
+  </object>
  </objectgroup>
- <layer name="bg" width="32" height="32" opacity="0.6">
-  <data encoding="base64" compression="zlib">
-   eJztwzENAAAMA6DKqn9ldbE9kJAAAADcqPp2NwoxAQ==
-  </data>
- </layer>
 </map>
