@@ -80,7 +80,7 @@ var play_state = {
 		this.attacking = false;
 
 		this.overlayGroup = this.game.add.group();
-		this.load_level("house", 400, 900);
+		this.load_level("park", 400, 900);
 
 		this.left = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
 		this.right = this.game.input.keyboard.addKey(Phaser.Keyboard.D);
@@ -199,11 +199,17 @@ var play_state = {
 		if(this.level=="houseFront" && this.character.position.x < 0){
 			this.load_level("subwayGround", 1240,1000);
 		}
+		if(this.level=="houseFront" && this.character.position.x >2400){
+			this.load_level("park", 20,1000);
+		}
 		if(this.level=="house" && this.character.position.x > 800){
 			this.load_level("houseBack", 400,1000);
 		}
 		if(this.level=="subwayGround" && this.character.position.x > 1270){
 			this.load_level("houseFront", 20,1000);
+		}		
+		if(this.level=="park" && this.character.position.x < 0){
+			this.load_level("houseFront", 2350,1000);
 		}
 	},
 
@@ -217,7 +223,7 @@ var play_state = {
 
 		this.game.physics.p2.clear();
 
-		if(level == "houseFront" || level == "houseBack" || level == "subwayGround"){
+		if(level == "houseFront" || level == "houseBack" || level == "subwayGround" || level == "park"){
 			this.game.stage.setBackgroundColor(0x7EC0EE);
 		}
 		else{
@@ -238,7 +244,7 @@ var play_state = {
 		this.overlay = this.map.createLayer('overlay',1024,1024,this.overlayGroup);	
 		this.dark = this.map.createLayer('bg',1024,1024,this.wallGroup);	
 		console.log(this.dark);
-		this.dark.alpha = .7;
+		this.dark.alpha = .5;
 		this.layer = this.map.createLayer('layer',1024,1024,this.wallGroup);	
 
 		this.layer.resizeWorld();
@@ -283,7 +289,6 @@ var play_state = {
 		this.characterGroup.add(this.character);
 
 		this.game.physics.p2.enable(this.character);
-
     	this.character.body.x = x;
     	this.character.body.y = y;
 		this.torso.body.static = true;

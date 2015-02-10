@@ -17,6 +17,7 @@ var load_state = {
 	this.game.load.tilemap('houseBack', 'level/houseBack.json', null, Phaser.Tilemap.TILED_JSON);
 	this.game.load.tilemap('townHouse', 'level/townHouse.json', null, Phaser.Tilemap.TILED_JSON);
 	this.game.load.tilemap('subwayGround', 'level/subwayGround.json', null, Phaser.Tilemap.TILED_JSON);
+	this.game.load.tilemap('park', 'level/park.json', null, Phaser.Tilemap.TILED_JSON);
 
 	this.game.load.image('tilesetBig', 'assets/tilesetBig.png');
 	this.game.load.image('collision', 'assets/collisions.png');
