@@ -236,6 +236,9 @@ var play_state = {
 		this.layer3 = this.map.createLayer('subDecals',1024,1024,this.wallGroup);	
 		this.layer4 = this.map.createLayer('decals',1024,1024,this.wallGroup);	
 		this.overlay = this.map.createLayer('overlay',1024,1024,this.overlayGroup);	
+		this.dark = this.map.createLayer('bg',1024,1024,this.wallGroup);	
+		console.log(this.dark);
+		this.dark.alpha = .7;
 		this.layer = this.map.createLayer('layer',1024,1024,this.wallGroup);	
 
 		this.layer.resizeWorld();
@@ -286,10 +289,12 @@ var play_state = {
 		this.torso.body.static = true;
 		this.head.body.static = true;
 
+		/*
 		this.character.anchor= {x : .5,y: .9};
 		this.torso.anchor= {x : .5,y: .775};
 		this.head.anchor= {x : .5,y: .6};
-	    //this.character.body.setCircle(10,0,0); 
+		*/
+	    this.character.body.setCircle(10,0,0); 
 	    //this.character.body.setRectangle(10,80, 10, -30); 
 	    //this.character.body.addCapsule(7,7); 
     	this.character.body.fixedRotation=true; 
