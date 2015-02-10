@@ -32,4 +32,9 @@
    <polyline points="0,0 117,-117 -5,-116 -1,0"/>
   </object>
  </objectgroup>
+ <layer name="bg" width="32" height="32" opacity="0.6">
+  <data encoding="base64" compression="zlib">
+   eJztwzENAAAMA6DKqn9ldbE9kJAAAADcqPp2NwoxAQ==
+  </data>
+ </layer>
 </map>
