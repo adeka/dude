@@ -16,17 +16,17 @@
  <objectgroup name="objectsLayer"/>
  <layer name="decals" width="32" height="32">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwSgYBaOANNBIoji1wUQSxakNFpIoTm2wkURxZNAExJOBeBKUjYzRxSdD9dShmXEQixhMfKDAVCCeNmr3qN3D3G5KAQBUORS0
+   eJzt0M0KgCAQBGCfPKg3KKl70A8duxQdO/ZWKRiIxOLaggTzwUAMtAMqBQAAAADAUzJ7aTWzl9Yze2krs/dVJtqkcd9+wl67f4rgxvnSPX0urUn3g+0lMvOH7Z24e0RmS9y2JsZO6j715tT+FZkhcdsaibu53QcTSFM=
   </data>
  </layer>
  <layer name="bg" width="32" height="32" opacity="0.6">
   <data encoding="base64" compression="zlib">
-   eJztwzENAAAMA6D6d1R3dbE9kJAAAADcqPp2rGSh4Q==
+   eJztzTENAAAIBLH37wh3mAAG0iY3XwIAAHCjnrfB33/q38tMUDg=
   </data>
  </layer>
  <layer name="layer" width="32" height="32">
   <data encoding="base64" compression="zlib">
-   eJztzTEOACAIBEEqlf9/Qn9JSwwFucLGnWQLmsMMAAAAAN6YQur2KFpCXco2///670I7da4719kKw0sLXQ==
+   eJztzTsKACAMBNFUfu5/Cb1l2iAWYdFU82AKQTZmAAAAAFCjC6nb7dIQynq5Ffd+/ed+/f0ptEL7eMcyWw5Qngkd
   </data>
  </layer>
  <objectgroup name="slopes">

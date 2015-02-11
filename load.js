@@ -25,6 +25,12 @@ var load_state = {
 	this.game.load.spritesheet('character', 'assets/character.png');
 	this.game.load.image('ball', 'assets/ball.png');
 
+	this.game.load.spritesheet('moveDust', 'assets/moveDust.png', 80, 48, 10);
+	this.game.load.spritesheet('landDust', 'assets/landDust.png', 232, 38, 5);
+	this.game.load.spritesheet('jumpDust', 'assets/jumpDust.png', 64, 50, 7);
+	this.game.load.spritesheet('dust', 'assets/dust.png', 152, 50, 7);
+
+
 	this.game.load.spritesheet('legs', 'assets/legs/legs.png', 10, 4, 12);
 	this.game.load.spritesheet('door', 'assets/door.png', 12, 22, 5);
 	this.game.load.spritesheet('doorSide', 'assets/doorSide.png', 12, 22, 5);

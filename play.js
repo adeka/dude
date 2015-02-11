@@ -3,6 +3,51 @@ var interact = false;
 var upwardSlopes = [149]; //list of tiles that slope up from left to right
 var downwardSlopes = [200]; //list of tiles that slope down from left to right
 
+function MoveDust(game, character, dir){
+	if(dir == 1){
+		var moveDust = game.add.sprite(character.x - 50, character.y - 35, 'moveDust');
+	}
+	else{
+		var moveDust = game.add.sprite(character.x + 50, character.y - 35, 'moveDust');
+	}
+	moveDust.scale = {x : 1 * dir, y : 1};
+	moveDust.alpha = .6;
+	var anim = moveDust.animations.add('move',[0,1,2,3,4,5,6,7,8,9,10]);
+	moveDust.animations.play('move', 10);
+	anim.killOnComplete = true;
+}
+
+function LandDust(game, character, dir){
+	var landDust = game.add.sprite(character.x - 70, character.y - 20, 'landDust');
+	landDust.scale = {x : .6, y : .6};
+	landDust.alpha = .6;
+	var anim = landDust.animations.add('move',[0,1,2,3,4,5]);
+	landDust.animations.play('move', 10);
+	anim.killOnComplete = true;
+}
+
+function JumpDust(game, character, dir){
+	var landDust = game.add.sprite(character.x - 30, character.y - 70, 'jumpDust');
+	landDust.scale = {x : 1, y : 1.7};
+	landDust.alpha = .4;
+	var anim = landDust.animations.add('move',[0,1,2,3,4,5,6,7]);
+	landDust.animations.play('move', 10);
+	anim.killOnComplete = true;
+}
+
+function StopDust(game, character, dir){
+	if(dir == 1){
+		var stopDust = game.add.sprite(character.x + 90, character.y - 20, 'dust');
+	}
+	else{
+		var stopDust = game.add.sprite(character.x - 90, character.y - 20, 'dust');
+	}
+	stopDust.scale = {x : -.7 * dir, y : .7};
+	stopDust.alpha = .6;
+	var anim = stopDust.animations.add('move',[0,1,2,3,4,5,6,7]);
+	stopDust.animations.play('move', 12);
+	anim.killOnComplete = true;
+}
 
 function Door(game,x,y, group, name, props){
 	this.open = false;
@@ -78,6 +123,7 @@ var play_state = {
 		this.direction = 1;
 		this.running = false
 		this.attacking = false;
+		this.landed = false;
 
 		this.overlayGroup = this.game.add.group();
 		this.load_level("park", 400, 900);
@@ -97,12 +143,16 @@ var play_state = {
 			this.direction = 1;
 			this.character.scale = {x:5,y:5};
 			this.running = true;
+			if(this.touchingDown(this.character))
+			MoveDust(this.game, this.character, this.direction);
 		}, this);
 		this.left.onDown.add(function() {
 			this.direction = -1;
 			this.velocity = -1;
 			this.character.scale = {x:-5,y:5};
 			this.running = true;
+			if(this.touchingDown(this.character))
+			MoveDust(this.game, this.character, this.direction);
 		}, this);
 		this.down.onDown.add(function() {
 			this.crouch=true;
@@ -115,9 +165,15 @@ var play_state = {
 		}, this);
 		this.right.onUp.add(function() {
 			this.running=false;
+			if(this.touchingDown(this.character))
+			StopDust(this.game, this.character, this.direction);
+
 		}, this);
 		this.left.onUp.add(function() {
 			this.running=false;
+			if(this.touchingDown(this.character))
+			StopDust(this.game, this.character, this.direction);
+
 		}, this);
 		this.up.onUp.add(function() {interact=false;}, this);
 		this.jumpKey.onUp.add(function() {this.jump=false;}, this);
@@ -155,12 +211,20 @@ var play_state = {
 		
 		if (this.jump && this.touchingDown(this.character)) {
 			this.character.body.velocity.y = -750;
+			JumpDust(this.game, this.character, this.direction);
+			this.landed = false;
+		}
+
+		if(!this.touchingDown(this.character)){
+			this.landed = false;
 		}
 		
 		this.character.body.velocity.x = this.velocity * 170;
-
+		if(this.touchingDown(this.character) && !this.landed && !this.jump){
+			LandDust(this.game, this.character, this.direction);
+			this.landed = true;
+		}
 		if(this.running){
-
 			this.character.animations.play('walk', 8, true);
 			this.torso.animations.play('walk', 8, true);
 
