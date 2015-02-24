@@ -3,6 +3,7 @@ var interact = false;
 var upwardSlopes = [149]; //list of tiles that slope up from left to right
 var downwardSlopes = [200]; //list of tiles that slope down from left to right
 
+
 function MoveDust(game, character, dir){
 	if(dir == 1){
 		var moveDust = game.add.sprite(character.x - 50, character.y - 35, 'moveDust');
@@ -126,7 +127,7 @@ var play_state = {
 		this.landed = false;
 
 		this.overlayGroup = this.game.add.group();
-		this.load_level("park", 400, 900);
+		this.load_level("house", 400, 900);
 
 		this.left = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
 		this.right = this.game.input.keyboard.addKey(Phaser.Keyboard.D);
